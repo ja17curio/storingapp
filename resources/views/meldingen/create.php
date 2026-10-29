@@ -39,6 +39,11 @@
                 <input type="text" name="melder" id="melder" class="form-input">
             </div>
 
+            <div class="form-group">
+                <label for="overig">Overige info:</label>
+                <textarea name="overig" rows="4"></textarea>
+            </div>
+
             <input type="submit" value="Verstuur melding">
 
         </form>
