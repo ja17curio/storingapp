@@ -1,10 +1,10 @@
 <?php
 
 //Variabelen vullen
-$attractie = $_POST['attractie'] ?? '';
+$sAttractie = $_POST['attractie'] ?? '';
 
 if(is_numeric($_POST['capaciteit'])){
-    $capaciteit = $_POST['capaciteit'];
+    $iCapaciteit = $_POST['capaciteit'];
 }
 else {
     $capaciteit = 0;
