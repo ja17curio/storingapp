@@ -83,18 +83,18 @@ if ($action == 'edit') {
 
     $melder = $_POST['melder'] ?? '';
 
-    // $allowed_types = [
-    //     "achtbaan",
-    //     "draaiend",
-    //     "water",
-    //     "overig"
-    // ];
+    $allowed_types = [
+        "achtbaan",
+        "draaiend",
+        "water",
+        "overig"
+    ];
 
-    // if (in_array($_POST['type'], $allowed_types, true)) {
-    //     $type = $_POST['type'];
-    // } else {
-    //     $type = "";
-    // }
+    if (in_array($_POST['type'], $allowed_types, true)) {
+        $type = $_POST['type'];
+    } else {
+        $type = "";
+    }
 
     $overig = $_POST["overig"] ?? '';
 
@@ -109,7 +109,8 @@ if ($action == 'edit') {
                 attractie = :attractie,
                 capaciteit = :capaciteit,
                 melder = :melder,
-                overige_info = :overig
+                overige_info = :overig,
+                type = :type
             WHERE
                 id = :id
     ";
@@ -124,7 +125,8 @@ if ($action == 'edit') {
         ":attractie" => $attractie,
         // ":type" => $type,
         ":overig" => $overig,
-        ":id" => $id
+        ":id" => $id,
+        ":type" => $type
     ]);
 
     header('Location:' . $base_url . '/resources/views/meldingen/index.php?msg=Je melding is bewerkt');
@@ -139,7 +141,7 @@ if ($action == 'delete') {
         echo "Je hebt geen geldig id meegegeven";
         exit();
     }
-    
+
     //1. Verbinding
     require_once '../../../config/conn.php';
 
