@@ -46,16 +46,16 @@ if (is_numeric($id)) {
                 <label for="attractie">Naam attractie:</label>
                 <input type="text" name="attractie" id="attractie" class="form-input" value="<?php echo $melding['attractie'];?>">
             </div>
-            <!-- <div class="form-group">
+            <div class="form-group">
                 <label for="type">Type</label>
                 <select id="type" name="type" required>
                     <option value="">-- kies een type --</option>
-                    <option value="achtbaan">Achtbaan</option>
-                    <option value="draaiend">Draaiende attractie</option>
-                    <option value="water">Waterattractie</option>
-                    <option value="overig">Overig</option>
+                    <option value="achtbaan" <?php if($melding['type'] == "achtbaan") {echo "selected";}?>>Achtbaan</option>
+                    <option value="draaiend" <?php if($melding['type'] == "draaiend") {echo "selected";}?>>Draaiende attractie</option>
+                    <option value="water" <?php if($melding['type'] == "water") {echo "selected";}?>>Waterattractie</option>
+                    <option value="overig" <?php if($melding['type'] == "overig") {echo "selected";}?>>Overig</option>
                 </select>
-            </div> -->
+            </div>
             <div class="form-group">
                 <label for="capaciteit">Capaciteit p/uur:</label>
                 <input type="number" min="0" name="capaciteit" id="capaciteit" class="form-input" value="<?php echo $melding['capaciteit'];?>">
