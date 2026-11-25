@@ -19,7 +19,7 @@
             echo "<div class='msg'>" . $_GET['msg'] . "</div>";
         } ?>
 
-        <div style="height: 300px; background: #ededed; display: flex; justify-content: center; align-items: center; color: #666666;">
+        <div style="background: #ededed; display: flex; justify-content: center; align-items: center; color: #666666;">
             <?php
 
             //1. Verbinding

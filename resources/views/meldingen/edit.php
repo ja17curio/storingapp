@@ -21,10 +21,6 @@ if (is_numeric($id)) {
     //5. Fetchall
     $melding = $statement->fetch();
 
-    echo "<pre>";
-    print_r($melding);
-    echo "</pre>";
-
     ?>
 
 <?php require_once __DIR__ . '/../../../config/config.php'; ?>
@@ -44,10 +40,11 @@ if (is_numeric($id)) {
         <h1>Bewerk melding</h1>
 
         <form action="<?php echo $base_url; ?>/app/Http/Controllers/meldingenController.php" method="POST">
-
+            <input type="hidden" name="action" value="edit">
+            <input type="hidden" name="id" value="<?php echo $id;?>">
             <div class="form-group">
                 <label for="attractie">Naam attractie:</label>
-                <input type="text" name="attractie" id="attractie" class="form-input">
+                <input type="text" name="attractie" id="attractie" class="form-input" value="<?php echo $melding['attractie'];?>">
             </div>
             <!-- <div class="form-group">
                 <label for="type">Type</label>
@@ -61,16 +58,16 @@ if (is_numeric($id)) {
             </div> -->
             <div class="form-group">
                 <label for="capaciteit">Capaciteit p/uur:</label>
-                <input type="number" min="0" name="capaciteit" id="capaciteit" class="form-input">
+                <input type="number" min="0" name="capaciteit" id="capaciteit" class="form-input" value="<?php echo $melding['capaciteit'];?>">
             </div>
             <div class="form-group">
                 <label for="melder">Naam melder:</label>
-                <input type="text" name="melder" id="melder" class="form-input">
+                <input type="text" name="melder" id="melder" class="form-input" value="<?php echo $melding['melder'];?>">
             </div>
 
             <div class="form-group">
                 <label for="overig">Overige info:</label>
-                <textarea name="overig" rows="4"></textarea>
+                <textarea name="overig" rows="4"><?php echo $melding['overige_info'];?></textarea>
             </div>
 
             <input type="submit" value="Verstuur melding">
