@@ -27,6 +27,13 @@ if ($action == 'create') {
         $type = "";
     }
 
+    if($_POST['prio']) {
+        $prioriteit = 1;
+    }
+    else {
+        $prioriteit = 0;
+    }
+
     $overig = $_POST["overig"] ?? '';
 
     //1. Verbinding
@@ -36,9 +43,9 @@ if ($action == 'create') {
     $query = "
 
             INSERT INTO meldingen
-                (melder, capaciteit, attractie, type, overige_info)
+                (melder, capaciteit, attractie, type, overige_info, prioriteit)
             VALUES
-                (:melder, :capaciteit, :attractie, :type, :overig)
+                (:melder, :capaciteit, :attractie, :type, :overig, :prio)
 ";
 
     //3. Prepare
@@ -50,7 +57,8 @@ if ($action == 'create') {
         ":capaciteit" => $capaciteit,
         ":attractie" => $attractie,
         ":type" => $type,
-        ":overig" => $overig
+        ":overig" => $overig,
+        ":prio" => $prioriteit
     ]);
 
     header('Location:' . $base_url . '/resources/views/meldingen/index.php?msg=Je melding is opgeslagen');

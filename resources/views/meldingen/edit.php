@@ -66,6 +66,11 @@ if (is_numeric($id)) {
             </div>
 
             <div class="form-group">
+                <label for="prio">Prioriteit</label>
+                <input type="checkbox" name="prio" id="prio" class="form-input" <?php if($melding['prioriteit'] == 1) { echo "checked";}?>>
+            </div>
+
+            <div class="form-group">
                 <label for="overig">Overige info:</label>
                 <textarea name="overig" rows="4"><?php echo $melding['overige_info'];?></textarea>
             </div>

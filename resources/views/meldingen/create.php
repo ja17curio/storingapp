@@ -41,6 +41,11 @@
             </div>
 
             <div class="form-group">
+                <label for="prio">Prioriteit</label>
+                <input type="checkbox" name="prio" id="prio" class="form-input">
+            </div>
+
+            <div class="form-group">
                 <label for="overig">Overige info:</label>
                 <textarea name="overig" rows="4"></textarea>
             </div>
