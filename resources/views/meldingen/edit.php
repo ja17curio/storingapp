@@ -78,6 +78,13 @@ if (is_numeric($id)) {
             <input type="submit" value="Verstuur melding">
 
         </form>
+        
+        <form action="<?php echo $base_url; ?>/app/Http/Controllers/meldingenController.php" method="POST">
+            <input type="hidden" name="action" value="delete">
+            <input type="hidden" name="id" value="<?php echo $id;?>">
+
+            <input type="submit" value="Verwijder">
+        </form>
     </div>
 
 </body>

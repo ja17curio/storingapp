@@ -27,10 +27,9 @@ if ($action == 'create') {
         $type = "";
     }
 
-    if($_POST['prio']) {
+    if ($_POST['prio']) {
         $prioriteit = 1;
-    }
-    else {
+    } else {
         $prioriteit = 0;
     }
 
@@ -67,12 +66,12 @@ if ($action == 'create') {
 
 if ($action == 'edit') {
     //Variabelen vullen
-   if (is_numeric($_POST['id'])) {
+    if (is_numeric($_POST['id'])) {
         $id = $_POST['id'];
-   } else {
-    echo "Je hebt geen geldig id meegegeven";
-    exit();
-   }
+    } else {
+        echo "Je hebt geen geldig id meegegeven";
+        exit();
+    }
 
     $attractie = $_POST['attractie'] ?? '';
 
@@ -129,5 +128,37 @@ if ($action == 'edit') {
     ]);
 
     header('Location:' . $base_url . '/resources/views/meldingen/index.php?msg=Je melding is bewerkt');
+    exit;
+}
+
+if ($action == 'delete') {
+
+    if (is_numeric($_POST['id'])) {
+        $id = $_POST['id'];
+    } else {
+        echo "Je hebt geen geldig id meegegeven";
+        exit();
+    }
+    
+    //1. Verbinding
+    require_once '../../../config/conn.php';
+
+    //2. Query
+    $query = "
+
+            DELETE FROM meldingen
+            WHERE
+                id = :id
+    ";
+
+    //3. Prepare
+    $statement = $conn->prepare($query);
+
+    //4. Execute
+    $statement->execute([
+        ":id" => $id
+    ]);
+
+    header('Location:' . $base_url . '/resources/views/meldingen/index.php?msg=Je melding is verwijderd');
     exit;
 }
