@@ -123,7 +123,6 @@ if ($action == 'edit') {
         ":melder" => $melder,
         ":capaciteit" => $capaciteit,
         ":attractie" => $attractie,
-        // ":type" => $type,
         ":overig" => $overig,
         ":id" => $id,
         ":type" => $type
